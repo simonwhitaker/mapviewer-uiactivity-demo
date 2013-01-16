@@ -1,5 +1,5 @@
 //
-//  GSViewController.h
+//  GSMapActivity.h
 //  MapViewer
 //
 //  Created by Simon Whitaker on 16/01/2013.
@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 
-@interface GSViewController : UIViewController
-
-@property (nonatomic, weak) IBOutlet MKMapView *mapView;
+@interface GSMapActivity : UIActivity
 
 @end

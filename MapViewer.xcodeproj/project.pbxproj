@@ -18,6 +18,11 @@
 		F46CEAA016A6B73C00B008F4 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F46CEA9F16A6B73C00B008F4 /* Default-568h@2x.png */; };
 		F46CEAA316A6B73C00B008F4 /* GSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F46CEAA216A6B73C00B008F4 /* GSViewController.m */; };
 		F46CEAA616A6B73C00B008F4 /* GSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46CEAA416A6B73C00B008F4 /* GSViewController.xib */; };
+		F46CEAAD16A6B7C300B008F4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46CEAAC16A6B7C300B008F4 /* MapKit.framework */; };
+		F46CEAB816A6B9E900B008F4 /* GSMapActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = F46CEAB716A6B9E900B008F4 /* GSMapActivity.m */; };
+		F46CEABB16A6BD9100B008F4 /* map-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F46CEAB916A6BD9100B008F4 /* map-icon.png */; };
+		F46CEABC16A6BD9100B008F4 /* map-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F46CEABA16A6BD9100B008F4 /* map-icon@2x.png */; };
+		F46CEABE16A6C2E300B008F4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46CEABD16A6C2E300B008F4 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,12 @@
 		F46CEAA116A6B73C00B008F4 /* GSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSViewController.h; sourceTree = "<group>"; };
 		F46CEAA216A6B73C00B008F4 /* GSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSViewController.m; sourceTree = "<group>"; };
 		F46CEAA516A6B73C00B008F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GSViewController.xib; sourceTree = "<group>"; };
+		F46CEAAC16A6B7C300B008F4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F46CEAB616A6B9E900B008F4 /* GSMapActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSMapActivity.h; sourceTree = "<group>"; };
+		F46CEAB716A6B9E900B008F4 /* GSMapActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSMapActivity.m; sourceTree = "<group>"; };
+		F46CEAB916A6BD9100B008F4 /* map-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-icon.png"; sourceTree = "<group>"; };
+		F46CEABA16A6BD9100B008F4 /* map-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "map-icon@2x.png"; sourceTree = "<group>"; };
+		F46CEABD16A6C2E300B008F4 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +55,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F46CEABE16A6C2E300B008F4 /* CoreLocation.framework in Frameworks */,
+				F46CEAAD16A6B7C300B008F4 /* MapKit.framework in Frameworks */,
 				F46CEA8A16A6B73C00B008F4 /* UIKit.framework in Frameworks */,
 				F46CEA8C16A6B73C00B008F4 /* Foundation.framework in Frameworks */,
 				F46CEA8E16A6B73C00B008F4 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +86,8 @@
 		F46CEA8816A6B73C00B008F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F46CEABD16A6C2E300B008F4 /* CoreLocation.framework */,
+				F46CEAAC16A6B7C300B008F4 /* MapKit.framework */,
 				F46CEA8916A6B73C00B008F4 /* UIKit.framework */,
 				F46CEA8B16A6B73C00B008F4 /* Foundation.framework */,
 				F46CEA8D16A6B73C00B008F4 /* CoreGraphics.framework */,
@@ -89,6 +104,8 @@
 				F46CEAA216A6B73C00B008F4 /* GSViewController.m */,
 				F46CEAA416A6B73C00B008F4 /* GSViewController.xib */,
 				F46CEA9016A6B73C00B008F4 /* Supporting Files */,
+				F46CEAB616A6B9E900B008F4 /* GSMapActivity.h */,
+				F46CEAB716A6B9E900B008F4 /* GSMapActivity.m */,
 			);
 			path = MapViewer;
 			sourceTree = "<group>";
@@ -96,6 +113,8 @@
 		F46CEA9016A6B73C00B008F4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F46CEAB916A6BD9100B008F4 /* map-icon.png */,
+				F46CEABA16A6BD9100B008F4 /* map-icon@2x.png */,
 				F46CEA9116A6B73C00B008F4 /* MapViewer-Info.plist */,
 				F46CEA9216A6B73C00B008F4 /* InfoPlist.strings */,
 				F46CEA9516A6B73C00B008F4 /* main.m */,
@@ -164,6 +183,8 @@
 				F46CEA9E16A6B73C00B008F4 /* Default@2x.png in Resources */,
 				F46CEAA016A6B73C00B008F4 /* Default-568h@2x.png in Resources */,
 				F46CEAA616A6B73C00B008F4 /* GSViewController.xib in Resources */,
+				F46CEABB16A6BD9100B008F4 /* map-icon.png in Resources */,
+				F46CEABC16A6BD9100B008F4 /* map-icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +198,7 @@
 				F46CEA9616A6B73C00B008F4 /* main.m in Sources */,
 				F46CEA9A16A6B73C00B008F4 /* GSAppDelegate.m in Sources */,
 				F46CEAA316A6B73C00B008F4 /* GSViewController.m in Sources */,
+				F46CEAB816A6B9E900B008F4 /* GSMapActivity.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
