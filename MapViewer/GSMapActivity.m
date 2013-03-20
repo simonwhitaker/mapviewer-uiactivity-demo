@@ -8,6 +8,13 @@
 
 #import <MapKit/MapKit.h>
 #import "GSMapActivity.h"
+#import "GSMapTypeSelectionViewController.h"
+
+@interface GSMapActivity() <GSMapTypeSelectionViewControllerDelegate> {
+    NSArray *_mapItems;
+}
+
+@end
 
 @implementation GSMapActivity
 
@@ -38,6 +45,12 @@
 
 }
 
+- (UIViewController *)activityViewController {
+    GSMapTypeSelectionViewController *vc = [[GSMapTypeSelectionViewController alloc] init];
+    vc.delegate = self;
+    return vc;
+}
+
 - (void)prepareWithActivityItems:(NSArray *)activityItems {
     // Iterate through the activity items, filtering out the MKMapItem objects
     NSMutableArray *mapItems = [NSMutableArray array];
@@ -47,9 +60,21 @@
         }
     }
     
+    _mapItems = mapItems;
+}
+
+// ---------------------------------------------------------
+   #pragma mark - GSMapTypeSelectionViewControllerDelegate
+// ---------------------------------------------------------
+
+- (void)viewController:(GSMapTypeSelectionViewController*)viewController didSelectMapType:(MKMapType)mapType {
+    
+    [self activityDidFinish:YES];
+
     // Open the map items in Maps
-    [MKMapItem openMapsWithItems:mapItems
-                   launchOptions:nil];
+    [MKMapItem openMapsWithItems:_mapItems
+                   launchOptions:@{MKLaunchOptionsMapTypeKey: @(mapType)}];
+
 }
 
 @end
