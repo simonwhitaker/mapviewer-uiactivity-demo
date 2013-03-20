@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MapKit/MapKit.h>
 
-@interface GSViewController : UIViewController
-
-@property (nonatomic, weak) IBOutlet MKMapView *mapView;
+@interface GSViewController : UITableViewController
 
 @end

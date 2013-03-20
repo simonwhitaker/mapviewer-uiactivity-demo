@@ -6,14 +6,15 @@
 //  Copyright (c) 2013 Goo Software Ltd. All rights reserved.
 //
 
-#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
+
 #import "GSMapActivity.h"
 
 @implementation GSMapActivity
 
 - (NSString *)activityType // default returns nil. subclass may override to return custom activity type that is reported to completion handler
 {
-    return NSStringFromClass([self class]);
+    return @"uk.co.goosoftware.GSMapActivity";
 }
 
 - (NSString *)activityTitle // default returns nil. subclass must override and must return non-nil value
@@ -30,29 +31,26 @@
 {
     NSUInteger count = 0;
     for (id obj in activityItems) {
-        if ([obj isKindOfClass:[CLLocation class]]) {
+        if ([obj isKindOfClass:[MKMapItem class]]) {
             count++;
         }
     }
     
-    // Show our activity if we are given exactly one location object
-    return count == 1;
+    // Show our activity if we are given at least one usable object
+    return count > 0;
 }
 
 - (void)prepareWithActivityItems:(NSArray *)activityItems // override to extract items and set up your HI. default does nothing
 {
+    NSMutableArray *mapItems = [NSMutableArray array];
+    
     for (id obj in activityItems) {
-        if ([obj isKindOfClass:[CLLocation class]]) {
-            CLLocation *location = (CLLocation*)obj;
-            NSString *url = [NSString stringWithFormat:@"http://maps.apple.com/?ll=%.6f,%.6f&z=4", location.coordinate.latitude, location.coordinate.longitude];
-            NSLog(@"Opening URL: %@", url);
-            
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
-            
-            // Don't process any additional objects. We can only display one.
-            break;
+        if ([obj isKindOfClass:[MKMapItem class]]) {
+            [mapItems addObject:obj];
         }
     }
+    
+    [MKMapItem openMapsWithItems:mapItems launchOptions:nil];
 }
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "GSAppDelegate.h"
-
 #import "GSViewController.h"
 
 @implementation GSAppDelegate
@@ -16,7 +15,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[GSViewController alloc] initWithNibName:@"GSViewController" bundle:nil];
+    self.viewController = [[GSViewController alloc] initWithStyle:UITableViewStylePlain];
     UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:self.viewController];
     
     self.window.rootViewController = nc;
