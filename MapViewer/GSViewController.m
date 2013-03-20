@@ -87,18 +87,23 @@
 {
 
     NSMutableArray *activityItems = [NSMutableArray array];
-    [_landmarks enumerateObjectsUsingBlock:^(GSLandmark *landmark, NSUInteger idx, BOOL *stop) {
+    [_landmarks enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if ([_selectedIndices containsIndex:idx]) {
-            [activityItems addObject:[landmark mapItem]];
+            [activityItems addObject:[(GSLandmark*)obj mapItem]];
         }
     }];
     
-    NSArray *applicationActivities = @[
-        [[GSMapActivity alloc] init],
-    ];
-    
-    UIActivityViewController *vc = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:applicationActivities];
-    [self presentViewController:vc animated:YES completion:NULL];
+    if ([activityItems count] > 0) {
+        NSArray *applicationActivities = @[
+            [[GSMapActivity alloc] init],
+        ];
+        
+        UIActivityViewController *vc = [[UIActivityViewController
+                                         alloc]
+                                        initWithActivityItems:activityItems
+                                        applicationActivities:applicationActivities];
+        [self presentViewController:vc animated:YES completion:NULL];
+    }
 }
 
 @end

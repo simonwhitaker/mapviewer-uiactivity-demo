@@ -13,7 +13,7 @@
 
 @property (nonatomic) CGFloat latitude;
 @property (nonatomic) CGFloat longitude;
-@property (nonatomic) NSString *name;
+@property (nonatomic, copy) NSString *name;
 @property (nonatomic, readonly) MKMapItem *mapItem;
 
 + (instancetype)landmarkWithName:(NSString*)name latitude:(CGFloat)latitude longitude:(CGFloat)longitude;

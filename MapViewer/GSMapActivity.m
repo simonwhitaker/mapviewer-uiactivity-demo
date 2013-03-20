@@ -7,50 +7,49 @@
 //
 
 #import <MapKit/MapKit.h>
-
 #import "GSMapActivity.h"
 
 @implementation GSMapActivity
 
-- (NSString *)activityType // default returns nil. subclass may override to return custom activity type that is reported to completion handler
-{
+- (NSString *)activityType {
+    // Unique string that identifies this activity to the OS
     return @"uk.co.goosoftware.GSMapActivity";
 }
 
-- (NSString *)activityTitle // default returns nil. subclass must override and must return non-nil value
-{
+- (NSString *)activityTitle {
+    // The label that appears under the activity icon in the "share sheet"
     return @"Open in Maps";
 }
 
-- (UIImage *)activityImage // default returns nil. subclass must override and must return non-nil value
-{
+- (UIImage *)activityImage {
+    // The icon that appears in the "share sheet". NB: it's a mask, like UITabBar button images.
     return [UIImage imageNamed:@"map-icon.png"];
 }
 
-- (BOOL)canPerformWithActivityItems:(NSArray *)activityItems // override this to return availability of activity based on items. default returns NO
-{
-    NSUInteger count = 0;
+- (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {
+
+    // Given an array of NSObjects, returns YES if at least one of them can be handled by this activity
     for (id obj in activityItems) {
         if ([obj isKindOfClass:[MKMapItem class]]) {
-            count++;
+            return YES;
         }
     }
-    
-    // Show our activity if we are given at least one usable object
-    return count > 0;
+    return NO;
+
 }
 
-- (void)prepareWithActivityItems:(NSArray *)activityItems // override to extract items and set up your HI. default does nothing
-{
+- (void)prepareWithActivityItems:(NSArray *)activityItems {
+    // Iterate through the activity items, filtering out the MKMapItem objects
     NSMutableArray *mapItems = [NSMutableArray array];
-    
     for (id obj in activityItems) {
         if ([obj isKindOfClass:[MKMapItem class]]) {
             [mapItems addObject:obj];
         }
     }
     
-    [MKMapItem openMapsWithItems:mapItems launchOptions:nil];
+    // Open the map items in Maps
+    [MKMapItem openMapsWithItems:mapItems
+                   launchOptions:nil];
 }
 
 @end
