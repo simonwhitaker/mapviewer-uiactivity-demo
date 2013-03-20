@@ -50,6 +50,8 @@
     // Open the map items in Maps
     [MKMapItem openMapsWithItems:mapItems
                    launchOptions:nil];
+    
+    [self activityDidFinish:YES];
 }
 
 @end
