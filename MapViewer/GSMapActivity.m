@@ -67,14 +67,14 @@
    #pragma mark - GSMapTypeSelectionViewControllerDelegate
 // ---------------------------------------------------------
 
-- (void)viewController:(GSMapTypeSelectionViewController*)viewController didSelectMapType:(MKMapType)mapType {
-    
-    [self activityDidFinish:YES];
-
+- (void)viewController:(GSMapTypeSelectionViewController*)viewController
+      didSelectMapType:(MKMapType)mapType {
     // Open the map items in Maps
     [MKMapItem openMapsWithItems:_mapItems
                    launchOptions:@{MKLaunchOptionsMapTypeKey: @(mapType)}];
+    _mapItems = nil;
 
+    [self activityDidFinish:YES];
 }
 
 @end
