@@ -9,6 +9,12 @@
 #import <MapKit/MapKit.h>
 #import "GSMapActivity.h"
 
+@interface GSMapActivity()
+
+@property (nonatomic, copy) NSArray *mapItems;
+
+@end
+
 @implementation GSMapActivity
 
 - (NSString *)activityType {
@@ -46,10 +52,12 @@
             [mapItems addObject:obj];
         }
     }
-    
+    self.mapItems = mapItems;
+}
+
+- (void)performActivity {
     // Open the map items in Maps
-    [MKMapItem openMapsWithItems:mapItems
-                   launchOptions:nil];
+    [MKMapItem openMapsWithItems:self.mapItems launchOptions:nil];
     
     [self activityDidFinish:YES];
 }
